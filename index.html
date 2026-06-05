@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#FF6B8A">
+    <meta name="description" content="신나는 게임월드 - 초등학생부터 중학생까지 즐길 수 있는 다양한 무료 게임들!">
+    <title>🎮 혜담 아림을 위한 신나는 게임월드 </title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Gamja+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 배경 장식 -->
+    <div class="bg-decorations">
+        <div class="floating-star star-1">⭐</div>
+        <div class="floating-star star-2">🌟</div>
+        <div class="floating-star star-3">✨</div>
+        <div class="floating-star star-4">💫</div>
+        <div class="floating-star star-5">⭐</div>
+        <div class="floating-star star-6">🌈</div>
+    </div>
+
+    <!-- 메인 컨테이너 -->
+    <div class="app-container" id="appContainer">
+        <!-- 헤더 -->
+        <header class="header">
+            <div class="header-inner">
+                <img src="images/herologo.jpg" alt="게임월드 로고" class="header-logo" onerror="this.style.display='none'">
+                <div class="header-text">
+                    <h1 class="site-title">🎮 신나는 게임월드</h1>
+                    <p class="site-subtitle">재미있는 게임이 가득! 골라서 즐겨요~</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- 메인 메뉴 (게임 목록) -->
+        <main class="main-content" id="mainMenu">
+            <!-- 히어로 섹션 -->
+            <section class="hero-section">
+                <div class="hero-card">
+                    <div class="hero-mascot">
+                        <img src="images/hero-character.png" alt="게임 캐릭터" class="hero-img" onerror="this.style.display='none'">
+                        <div class="hero-emoji">🎪</div>
+                    </div>
+                    <div class="hero-message">
+                        <h2>어서오세요! 👋</h2>
+                        <p>아래 게임들을 눌러서<br>신나게 놀아볼까요?</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 게임 카드 그리드 -->
+            <section class="games-section">
+                <h2 class="section-title">🎯 오늘의 게임</h2>
+                <div class="games-grid" id="gamesGrid">
+                    <!-- 게임 카드는 JS에서 동적으로 생성 -->
+                </div>
+            </section>
+
+            <!-- 하단 정보 -->
+            <footer class="footer">
+                <p>🌟 매일매일 새로운 게임이 추가됩니다!</p>
+                <p class="footer-small">© 2026 신나는 게임월드 | GitHub Pages</p>
+            </footer>
+        </main>
+
+        <!-- 게임 플레이 영역 -->
+        <div class="game-screen" id="gameScreen">
+            <div class="game-header">
+                <button class="btn-back" id="btnBack" aria-label="뒤로가기">
+                    <span class="back-icon">◀</span> 목록으로
+                </button>
+                <div class="game-title-display" id="gameTitleDisplay"></div>
+                <div class="game-score-display" id="gameScoreDisplay"></div>
+            </div>
+            <div class="game-container" id="gameContainer">
+                <!-- 각 게임이 여기에 렌더링됨 -->
+            </div>
+        </div>
+
+        <!-- 게임 오버 모달 -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal-card" id="modalCard">
+                <div class="modal-emoji" id="modalEmoji">🎉</div>
+                <h2 class="modal-title" id="modalTitle">게임 끝!</h2>
+                <p class="modal-message" id="modalMessage"></p>
+                <div class="modal-score" id="modalScore"></div>
+                <div class="modal-buttons">
+                    <button class="btn btn-retry" id="btnRetry">🔄 다시하기</button>
+                    <button class="btn btn-menu" id="btnMenu">🏠 목록으로</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
