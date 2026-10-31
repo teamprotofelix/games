@@ -2,9 +2,14 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="theme-color" content="#FF6B8A">
-    <meta name="description" content="신나는 게임월드 - 초등학생부터 중학생까지 즐길 수 있는 다양한 무료 게임들!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#7168C9">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/app-icon-192.png">
+    <meta name="description" content="신나는 게임월드: 스마트폰에서 바로 즐기는 21가지 무료 미니게임!">
     <title>🎮 혜담 아림을 위한 신나는 게임월드 </title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,21 +43,25 @@
         <main class="main-content" id="mainMenu">
             <!-- 히어로 섹션 -->
             <section class="hero-section">
-                <div class="hero-card">
-                    <div class="hero-mascot">
-                        <img src="images/hero-character.png" alt="게임 캐릭터" class="hero-img" onerror="this.style.display='none'">
-                        <div class="hero-emoji">🎪</div>
+                <div class="hero-card hero-card-new">
+                    <img class="hero-scene" src="images/adventure/hero-world.webp" alt="다섯 가지 환상적인 게임 세계" width="1280" height="520">
+                    <div class="hero-message"><span class="hero-eyebrow">🌈 MINI ARCADE COLLECTION</span>
+                        <h2>손끝에서 열리는<br>다섯 개의 새로운 모험!</h2>
+                        <p>딱 한 번만 눌러도 즐거워요. 지금 플레이!</p>
                     </div>
-                    <div class="hero-message">
-                        <h2>어서오세요! 👋</h2>
-                        <p>아래 게임들을 눌러서<br>신나게 놀아볼까요?</p>
-                    </div>
+                    <div class="hero-sticker" aria-hidden="true">21<br><small>GAMES</small></div>
                 </div>
             </section>
 
-            <!-- 게임 카드 그리드 -->
+            <!-- 새 미니게임 -->
+            <section class="games-section featured-section">
+                <div class="section-heading"><h2 class="section-title">✨ 새로 나온 5가지 모험</h2><span class="section-count">NEW 5</span></div>
+                <div class="games-grid featured-grid" id="featuredGrid"></div>
+            </section>
+
+            <!-- 기존 게임 카드 -->
             <section class="games-section">
-                <h2 class="section-title">🎯 오늘의 게임</h2>
+                <div class="section-heading"><h2 class="section-title">🎯 인기 미니게임</h2><span class="section-count">CLASSIC 16</span></div>
                 <div class="games-grid" id="gamesGrid">
                     <!-- 게임 카드는 JS에서 동적으로 생성 -->
                 </div>
@@ -60,7 +69,7 @@
 
             <!-- 하단 정보 -->
             <footer class="footer">
-                <p>🌟 매일매일 새로운 게임이 추가됩니다!</p>
+                <p>🌟 별도의 설치 없이 즐기고, 홈 화면에도 추가해보세요!</p>
                 <p class="footer-small">© 2026 신나는 게임월드 | GitHub Pages</p>
             </footer>
         </main>
@@ -94,6 +103,8 @@
         </div>
     </div>
 
+    <script src="js/adventures.js"></script>
     <script src="js/script.js"></script>
+    <script>if ('serviceWorker' in navigator && location.protocol.startsWith('http')) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));</script>
 </body>
 </html>
