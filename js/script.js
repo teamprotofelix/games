@@ -20,7 +20,8 @@ const GAMES = [
         desc: '두더지를 망치로 잡아요!',
         badge: '🔥 인기',
         color: '#FF6B8A',
-        module: 'WhackMole'
+        module: 'WhackMole',
+        thumb: 'images/classic/whack-mole.webp'
     },
     {
         id: 'memory',
@@ -29,7 +30,8 @@ const GAMES = [
         desc: '같은 그림을 찾아보세요!',
         badge: '🧠 두뇌',
         color: '#4DD0B7',
-        module: 'MemoryGame'
+        module: 'MemoryGame',
+        thumb: 'images/classic/memory.webp'
     },
     {
         id: 'catch-star',
@@ -38,7 +40,8 @@ const GAMES = [
         desc: '떨어지는 별을 바구니로 받아요!',
         badge: '✨ 신규',
         color: '#64B5F6',
-        module: 'CatchStar'
+        module: 'CatchStar',
+        thumb: 'images/classic/catch-star.webp'
     },
     {
         id: 'rps',
@@ -47,7 +50,8 @@ const GAMES = [
         desc: '컴퓨터와 가위바위보 대결!',
         badge: '🤝 대결',
         color: '#BA68C8',
-        module: 'RPSGame'
+        module: 'RPSGame',
+        thumb: 'images/classic/rps.webp'
     },
     {
         id: 'snake',
@@ -56,7 +60,8 @@ const GAMES = [
         desc: '뱀을 키워서 최고 점수를 노려요!',
         badge: '🏆 도전',
         color: '#FFB74D',
-        module: 'SnakeGame'
+        module: 'SnakeGame',
+        thumb: 'images/classic/snake.webp'
     },
     {
         id: 'math-quiz',
@@ -65,7 +70,8 @@ const GAMES = [
         desc: '덧셈 뺄셈 문제를 풀어보세요!',
         badge: '📚 공부',
         color: '#FFD54F',
-        module: 'MathQuiz'
+        module: 'MathQuiz',
+        thumb: 'images/classic/math-quiz.webp'
     },
     {
         id: 'game2048',
@@ -74,7 +80,8 @@ const GAMES = [
         desc: '타일을 합쳐서 2048을 만들어요!',
         badge: '✨ 신규',
         color: '#81C784',
-        module: 'Game2048'
+        module: 'Game2048',
+        thumb: 'images/classic/game2048.webp'
     },
     {
         id: 'bug-catch',
@@ -83,7 +90,8 @@ const GAMES = [
         desc: '도망가는 벌레를 터치해서 잡아요!',
         badge: '👆 빠른게임',
         color: '#F48FB1',
-        module: 'BugCatch'
+        module: 'BugCatch',
+        thumb: 'images/classic/bug-catch.webp'
     },
     {
         id: 'tictactoe',
@@ -92,7 +100,8 @@ const GAMES = [
         desc: '컴퓨터와 삼목 대결을 해요!',
         badge: '🧠 전략',
         color: '#FF8A65',
-        module: 'TicTacToe'
+        module: 'TicTacToe',
+        thumb: 'images/classic/tictactoe.webp'
     },
     {
         id: 'reaction',
@@ -101,7 +110,8 @@ const GAMES = [
         desc: '초록색이 되면 재빨리 눌러요!',
         badge: '🏃 순발력',
         color: '#4FC3F7',
-        module: 'ReactionTime'
+        module: 'ReactionTime',
+        thumb: 'images/classic/reaction.webp'
     },
     {
         id: 'number-baseball',
@@ -110,7 +120,8 @@ const GAMES = [
         desc: '세 자리 숫자를 맞춰보세요!',
         badge: '🤔 추리',
         color: '#AED581',
-        module: 'NumberBaseball'
+        module: 'NumberBaseball',
+        thumb: 'images/classic/number-baseball.webp'
     },
     {
         id: 'color-word',
@@ -119,7 +130,8 @@ const GAMES = [
         desc: '글자색을 보고 맞춰요!',
         badge: '👀 집중력',
         color: '#EF5350',
-        module: 'ColorWord'
+        module: 'ColorWord',
+        thumb: 'images/classic/color-word.webp'
     },
     {
         id: 'bubble-pop',
@@ -128,7 +140,8 @@ const GAMES = [
         desc: '올라오는 비눗방울을 터뜨려요!',
         badge: '👆 중독성',
         color: '#7E57C2',
-        module: 'BubblePop'
+        module: 'BubblePop',
+        thumb: 'images/classic/bubble-pop.webp'
     },
     {
         id: 'slide-puzzle',
@@ -137,7 +150,8 @@ const GAMES = [
         desc: '숫자를 순서대로 배열해요!',
         badge: '🤯 퍼즐',
         color: '#FFB74D',
-        module: 'SlidePuzzle'
+        module: 'SlidePuzzle',
+        thumb: 'images/classic/slide-puzzle.webp'
     },
     {
         id: 'speed-tap',
@@ -146,7 +160,8 @@ const GAMES = [
         desc: '나타나는 과녁을 최대한 빨리 터치!',
         badge: '💪 속도',
         color: '#E57373',
-        module: 'SpeedTap'
+        module: 'SpeedTap',
+        thumb: 'images/classic/speed-tap.webp'
     },
     {
         id: 'simon-says',
@@ -155,7 +170,8 @@ const GAMES = [
         desc: '불빛 순서를 기억해서 따라해요!',
         badge: '🔔 기억력',
         color: '#5C6BC0',
-        module: 'SimonSays'
+        module: 'SimonSays',
+        thumb: 'images/classic/simon-says.webp'
     }
 ];
 
@@ -172,7 +188,7 @@ const App = {
     },
 
     renderGameCards() {
-        const makeCard = (g, i) => `<button type="button" class="game-card ${g.isNew ? 'game-card-featured' : ''}" data-game-id="${g.id}" style="animation-delay:${Math.min(i,18)*0.045}s" aria-label="${g.title} 게임 시작">
+        const makeCard = (g, i) => `<button type="button" class="game-card ${g.isNew ? 'game-card-featured' : (g.thumb ? 'classic-cover' : '')}" data-game-id="${g.id}" style="animation-delay:${Math.min(i,18)*0.045}s" aria-label="${g.title} 게임 시작">
             ${g.thumb ? `<img class="game-card-cover" src="${g.thumb}" alt="" loading="lazy" width="720" height="405">` : ''}
             <span class="game-card-badge">${g.badge}</span>
             <span class="game-card-emoji">${g.emoji}</span>
@@ -244,6 +260,11 @@ const App = {
         this.currentGame = gameId;
         const container = document.getElementById('gameContainer');
         container.classList.toggle('arcade-container', !!game.isNew);
+        container.classList.toggle('classic-remaster', !game.isNew);
+        container.dataset.gameId = gameId;
+        const richSceneIds = ['whack-mole','memory','snake','game2048','bubble-pop','slide-puzzle'];
+        const sceneFile = richSceneIds.includes(gameId) ? `images/classic/${gameId}-scene.webp` : game.thumb;
+        container.style.setProperty('--classic-scene', sceneFile ? `url("${sceneFile}")` : 'none');
         const titleDisplay = document.getElementById('gameTitleDisplay');
         const scoreDisplay = document.getElementById('gameScoreDisplay');
 
@@ -300,7 +321,8 @@ const App = {
         document.getElementById('gameScreen').classList.remove('active');
         document.getElementById('mainMenu').classList.remove('hidden');
         document.getElementById('gameContainer').innerHTML = '';
-        document.getElementById('gameContainer').classList.remove('arcade-container');
+        document.getElementById('gameContainer').classList.remove('arcade-container', 'classic-remaster');
+        document.getElementById('gameContainer').removeAttribute('data-game-id');
     },
 
     showGameOver(score, message, game) {
@@ -331,6 +353,7 @@ class WhackMole {
         this.moleInterval = null;
         this.onGameOver = null;
         this.holes = [];
+        this.popTimeouts = [];
     }
 
     init() {
@@ -351,7 +374,7 @@ class WhackMole {
         for (let i = 0; i < 9; i++) {
             const hole = document.createElement('div');
             hole.className = 'whack-hole';
-            hole.innerHTML = '<span class="whack-mole">🐹</span>';
+            hole.innerHTML = '<span class="whack-mole"><img src="images/classic/mole-sticker.webp" alt="두더지" width="110" height="110"></span>';
             hole.addEventListener('pointerdown', (e) => {
                 e.preventDefault();
                 this.whack(i);
@@ -383,6 +406,9 @@ class WhackMole {
     }
 
     popMole() {
+        if (!this.isPlaying) return;
+        this.popTimeouts.forEach(t => clearTimeout(t));
+        this.popTimeouts = [];
         // Hide all moles
         this.holes.forEach(h => h.querySelector('.whack-mole').classList.remove('show'));
 
@@ -392,9 +418,9 @@ class WhackMole {
         this.activeHole = idx;
 
         // Auto hide after a bit
-        setTimeout(() => {
-            this.holes[idx].querySelector('.whack-mole').classList.remove('show');
-        }, 500 + Math.random() * 300);
+        this.popTimeouts.push(setTimeout(() => {
+            if (this.isPlaying && this.holes[idx]) this.holes[idx].querySelector('.whack-mole').classList.remove('show');
+        }, 500 + Math.random() * 300));
     }
 
     whack(idx) {
@@ -404,13 +430,10 @@ class WhackMole {
             this.score += 10;
             mole.classList.remove('show');
             this.holes[idx].classList.add('hit');
-            // Show hit effect
-            const emoji = ['💥', '⭐', '✨'][Math.floor(Math.random() * 3)];
-            mole.textContent = emoji;
-            setTimeout(() => {
-                this.holes[idx].classList.remove('hit');
-                mole.textContent = '🐹';
-            }, 200);
+            // Keep the WebP sprite mounted while the hit animation plays.
+            this.popTimeouts.push(setTimeout(() => {
+                if (this.holes[idx]) this.holes[idx].classList.remove('hit');
+            }, 200));
         } else {
             // Miss - small penalty
             this.score = Math.max(0, this.score - 2);
@@ -431,6 +454,8 @@ class WhackMole {
         this.isPlaying = false;
         clearInterval(this.moleInterval);
         clearInterval(this.timerInterval);
+        this.popTimeouts.forEach(t => clearTimeout(t));
+        this.popTimeouts = [];
         this.holes.forEach(h => h.querySelector('.whack-mole').classList.remove('show'));
 
         const msg = this.score >= 200 ? '와! 두더지 박사! 🎓' :
@@ -443,6 +468,8 @@ class WhackMole {
     destroy() {
         clearInterval(this.moleInterval);
         clearInterval(this.timerInterval);
+        this.popTimeouts.forEach(t => clearTimeout(t));
+        this.popTimeouts = [];
         this.isPlaying = false;
     }
 }
@@ -460,10 +487,11 @@ class MemoryGame {
         this.moves = 0;
         this.isLocked = false;
         this.onGameOver = null;
+        this.pendingTimers = [];
     }
 
     init() {
-        const emojis = ['🐶', '🐱', '🐰', '🐼', '🐨', '🐸', '🦊', '🐯'];
+        const emojis = ['dog', 'cat', 'rabbit', 'panda', 'koala', 'frog', 'fox', 'tiger'];
         const pairs = [...emojis, ...emojis];
         // Shuffle
         for (let i = pairs.length - 1; i > 0; i--) {
@@ -489,7 +517,7 @@ class MemoryGame {
             card.innerHTML = `
                 <div class="memory-card-inner">
                     <div class="memory-card-face memory-card-back"></div>
-                    <div class="memory-card-face memory-card-front">${emoji}</div>
+                    <div class="memory-card-face memory-card-front"><img src="images/classic/animal-${emoji}.webp" alt="동물 카드" width="150" height="150" draggable="false"></div>
                 </div>
             `;
             card.addEventListener('click', () => this.flipCard(i, emoji, card));
@@ -534,16 +562,17 @@ class MemoryGame {
             this.isLocked = false;
 
             if (this.matched.length === 16) {
-                setTimeout(() => this.endGame(), 500);
+                this.pendingTimers.push(setTimeout(() => { if (this.container.isConnected && this.cards.length) this.endGame(); }, 500));
             }
         } else {
             // No match - flip back
-            setTimeout(() => {
+            this.pendingTimers.push(setTimeout(() => {
+                if (!this.container.isConnected) return;
                 a.el.classList.remove('flipped');
                 b.el.classList.remove('flipped');
                 this.flipped = [];
                 this.isLocked = false;
-            }, 600);
+            }, 600));
         }
     }
 
@@ -555,7 +584,7 @@ class MemoryGame {
         if (this.onGameOver) this.onGameOver(score, msg);
     }
 
-    destroy() {}
+    destroy() { this.pendingTimers.forEach(clearTimeout); this.pendingTimers = []; this.cards = []; }
 }
 
 // ============================================
@@ -902,6 +931,8 @@ class SnakeGame {
         this.cols = 0;
         this.rows = 0;
         this.onGameOver = null;
+        this.bgImg = new Image(); this.bgImg.src = 'images/classic/snake-scene.webp';
+        this.headImg = new Image(); this.headImg.src = 'images/classic/snake-sticker.webp';
     }
 
     init() {
@@ -1064,7 +1095,10 @@ class SnakeGame {
         const g = this.gridSize;
 
         // Background
-        ctx.fillStyle = '#1a1a2e';
+        ctx.fillStyle = '#28204f';
+        ctx.fillRect(0, 0, w, h);
+        if (this.bgImg.complete && this.bgImg.naturalWidth) ctx.drawImage(this.bgImg, 0, 0, w, h);
+        ctx.fillStyle = 'rgba(14, 19, 53, .43)';
         ctx.fillRect(0, 0, w, h);
 
         // Grid lines (subtle)
@@ -1143,6 +1177,10 @@ class SnakeGame {
             ctx.beginPath();
             ctx.arc(ex2, ey2, 1.5, 0, Math.PI*2);
             ctx.fill();
+            // Character sprite is drawn over the head tile, if available.
+            if (this.headImg.complete && this.headImg.naturalWidth) {
+                ctx.drawImage(this.headImg, hx-3, hy-4, g+6, g+8);
+            }
         }
     }
 
@@ -2309,17 +2347,19 @@ class BubblePop {
         const bubble = document.createElement('div');
         const colors = ['#FF6B8A','#FFD54F','#4DD0B7','#64B5F6','#BA68C8','#FF8A65','#81C784'];
         const color = colors[Math.floor(Math.random()*colors.length)];
-        bubble.style.cssText = `
+        bubble.className = 'bubble-sprite';
+        bubble.style.setProperty('--bubble-accent', color);
+        bubble.style.cssText += `
             position:absolute;width:${size}px;height:${size}px;
-            background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.7),${color});
+            background-image:url('images/classic/bubble-sprite.webp');background-size:100% 100%;
             border-radius:50%;left:${Math.random()*(areaW-size)}px;
             bottom:-${size}px;pointer-events:none;z-index:10;
-            box-shadow:inset -4px -4px 8px rgba(0,0,0,0.1),inset 2px 2px 4px rgba(255,255,255,0.5);
+            filter:drop-shadow(0 4px 8px rgba(139,195,252,.35));
         `;
         area.appendChild(bubble);
 
         const speed = 0.3 + Math.random() * 0.8;
-        const points = Math.round((60 - size) / 5) * 5;
+        const points = Math.max(5, Math.round((105 - size) / 6) * 5);
         this.bubbles.push({ el: bubble, y: area.clientHeight, speed, size, points, popped: false });
     }
 
@@ -2410,17 +2450,19 @@ class SlidePuzzle {
     }
 
     init() {
-        // Create solvable initial state
+        // Legal random walk from solved board guarantees a solvable puzzle.
         this.board = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0];
-        // Shuffle with even number of inversions (for solvability)
-        do {
-            for (let i = this.board.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [this.board[i], this.board[j]] = [this.board[j], this.board[i]];
-            }
-        } while (!this.isSolvable());
-
-        this.emptyIdx = this.board.indexOf(0);
+        this.emptyIdx = 15;
+        let previous = -1;
+        for (let step = 0; step < 90; step++) {
+            const er = Math.floor(this.emptyIdx / 4), ec = this.emptyIdx % 4;
+            const choices = [[er-1,ec],[er+1,ec],[er,ec-1],[er,ec+1]]
+                .filter(([r,c]) => r>=0 && r<4 && c>=0 && c<4)
+                .map(([r,c]) => r*4+c).filter(i=>i!==previous);
+            const next = choices[Math.floor(Math.random()*choices.length)];
+            [this.board[this.emptyIdx], this.board[next]] = [this.board[next], this.board[this.emptyIdx]];
+            previous = this.emptyIdx; this.emptyIdx = next;
+        }
         this.moves = 0;
         this.isPlaying = true;
 
@@ -2430,12 +2472,9 @@ class SlidePuzzle {
                     <span style="font-weight:700;">🏆 이동: <span id="spMoves">0</span></span>
                     <button class="btn-start" id="spNew" style="padding:8px 20px;font-size:0.85rem;">🔄 섞기</button>
                 </div>
-                <div id="spBoard" style="
-                    display:grid;grid-template-columns:repeat(4,1fr);gap:6px;
-                    background:#BBADA0;padding:8px;border-radius:12px;
-                "></div>
+                <div id="spBoard" class="classic-picture-board" aria-label="그림 조각 슬라이드 퍼즐"></div>
                 <p style="margin-top:8px;font-size:0.8rem;color:#757575;">
-                    타일을 터치해서 빈 칸으로 옮겨 순서대로 배열하세요!
+                    그림이 이어지도록 조각을 움직이세요. 작은 숫자도 힌트예요!
                 </p>
             </div>
         `;
@@ -2453,8 +2492,8 @@ class SlidePuzzle {
                 if (arr[i] > arr[j]) inv++;
             }
         }
-        const emptyRow = Math.floor(this.emptyIdx / 4);
-        return (inv + emptyRow) % 2 === 1; // For odd grid width
+        const emptyRowFromBottom = 4 - Math.floor(this.board.indexOf(0) / 4);
+        return (inv + emptyRowFromBottom) % 2 === 1; // 4x4 parity rule
     }
 
     renderBoard() {
@@ -2462,20 +2501,20 @@ class SlidePuzzle {
         if (!boardEl) return;
         boardEl.innerHTML = '';
         for (let i = 0; i < 16; i++) {
-            const tile = document.createElement('div');
             const val = this.board[i];
-            if (val === 0) {
-                tile.style.cssText = 'aspect-ratio:1;background:transparent;';
-            } else {
-                tile.style.cssText = `
-                    aspect-ratio:1;background:#EEE4DA;border-radius:6px;
-                    display:flex;align-items:center;justify-content:center;
-                    font-size:1.3rem;font-weight:900;color:#776E65;
-                    cursor:pointer;touch-action:manipulation;
-                    box-shadow:0 2px 4px rgba(0,0,0,0.1);
-                `;
-                tile.textContent = val;
+            const tile = document.createElement('button');
+            tile.type = 'button';
+            tile.className = 'picture-tile' + (val===0 ? ' picture-empty' : '');
+            if (val !== 0) {
+                const col = (val - 1) % 4;
+                const row = Math.floor((val - 1) / 4);
+                tile.style.backgroundPosition = `${col * 100 / 3}% ${row * 100 / 3}%`;
+                tile.innerHTML = `<span class="picture-number">${val}</span>`;
+                tile.setAttribute('aria-label', `${val}번 조각 이동`);
                 tile.addEventListener('click', () => this.moveTile(i));
+            } else {
+                tile.disabled = true;
+                tile.setAttribute('aria-label', '빈칸');
             }
             boardEl.appendChild(tile);
         }

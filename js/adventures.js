@@ -105,7 +105,7 @@ class MoonRunner extends ArcadeBase {
 }
 
 class PearlDiver extends ArcadeBase {
-  constructor(c,s){super(c,s);this.label='반짝 진주 잠수함';this.icon='🐠';this.limit=45;this.help='잠수함을 좌우로 움직여 진주를 모으세요!<br>보라색 해파리는 피해요.';this.tip='잠수함을 드래그하거나 ◀ ▶ 버튼을 탭하세요.';this.lives=3;this.playerX=360;this.targetX=360;this.spawn=.3;this.items=[];this.direction=0;}
+  constructor(c,s){super(c,s);this.label='반짝 진주 잠수함';this.icon='🐠';this.limit=45;this.help='잠수함을 좌우로 움직여 진주를 모으세요!<br>보라색 해파리는 피해요.';this.tip='잠수함을 드래그하거나 ◀ ▶ 버튼을 꾹 누르세요.';this.lives=3;this.playerX=360;this.targetX=360;this.spawn=.3;this.items=[];this.direction=0;}
   onStart(){this.score=0;this.lives=3;this.playerX=360;this.targetX=360;this.spawn=.4;this.items=[];}
   setControls(){const left=this.addButton('◀ 왼쪽',()=>{this.targetX=AR.clamp(this.targetX-95,80,640);});const right=this.addButton('오른쪽 ▶',()=>{this.targetX=AR.clamp(this.targetX+95,80,640);});left.setAttribute('aria-label','왼쪽 이동');right.setAttribute('aria-label','오른쪽 이동');}
   keyboard(k){if(k==='ArrowLeft'||k==='a'){this.targetX=AR.clamp(this.targetX-105,80,640);return true;}if(k==='ArrowRight'||k==='d'){this.targetX=AR.clamp(this.targetX+105,80,640);return true;}return false;}
@@ -146,9 +146,9 @@ class FlowerBeat extends ArcadeBase {
 }
 
 class StarPath extends ArcadeBase {
-  constructor(c,s){super(c,s);this.label='반짝 별자리 연결';this.icon='🌌';this.limit=60;this.help='숫자 순서대로 별을 터치해<br>아름다운 별자리를 완성하세요!';this.tip='빛나는 별을 1번부터 차례로 눌러요.';this.level=0;this.next=0;this.points=[];this.completed=[];this.misses=0;this.transition=0;this.hintTime=0;}
+  constructor(c,s){super(c,s);this.label='반짝 별자리 연결';this.icon='🌌';this.limit=60;this.help='숫자 순서대로 별을 터치해<br>아름다운 별자리를 완성하세요!';this.tip='빛나는 별을 1번부터 차례로 눌러요.';this.level=0;this.next=0;this.points=[];this.completed=[];this.misses=0;this.transition=0;}
   onStart(){this.score=0;this.level=1;this.misses=0;this.newLevel();}
-  setControls(){this.addButton('✨ 별자리 힌트',()=>{if(!this.playing)return;this.score=Math.max(0,this.score-5);this.hintTime=1.5;});}
+  setControls(){this.addButton('✨ 별자리 힌트',()=>{if(!this.playing)return;this.score=Math.max(0,this.score-5);this.transition=.7;});}
   keyboard(){return false;}
   newLevel(){this.next=0;this.completed=[];this.points=[];this.transition=0;let attempts=0;
     for(let i=0;i<Math.min(8,this.level+3);i++){
@@ -160,12 +160,11 @@ class StarPath extends ArcadeBase {
     if(i===this.next){this.completed.push(i);this.next++;this.score+=15+this.level*2;this.burst(p.x,p.y,'#fff4ab');if(this.next>=this.points.length){this.score+=50;this.level++;this.transition=.85;this.burst(360,280,'#a8dbff',35);}}
     else{this.score=Math.max(0,this.score-8);this.misses++;this.burst(p.x,p.y,'#ff9ab9',6);if(this.misses>=5){this.finish('별자리 실수 5번! 다시 관찰해 보세요.');}}
   }
-  update(dt){this.hintTime=Math.max(0,this.hintTime-dt);if(this.transition>0){this.transition-=dt;if(this.transition<=0&&this.next>=this.points.length){if(this.level>7){this.finish('모든 별자리를 완성했어요! 🌟');}else{this.newLevel();}}}
+  update(dt){if(this.transition>0){this.transition-=dt;if(this.transition<=0&&this.next>=this.points.length){if(this.level>7){this.finish('모든 별자리를 완성했어요! 🌟');}else{this.newLevel();}}}
     this.hud=`🌟 ${this.level}단계 · 실수 ${this.misses}/5`;
   }
   draw(){this.background('cosmos');const c=this.ctx;
     c.save();c.strokeStyle='rgba(255,237,166,.86)';c.lineWidth=5;c.shadowColor='#b9e4ff';c.shadowBlur=18;c.beginPath();this.completed.forEach((idx,j)=>{const p=this.points[idx];j?c.lineTo(p.x,p.y):c.moveTo(p.x,p.y);});c.stroke();c.restore();
-    if(this.hintTime>0&&this.points[this.next]){const p=this.points[this.next];c.save();c.strokeStyle='#fff';c.lineWidth=7;c.setLineDash([12,8]);c.beginPath();c.arc(p.x,p.y,49,0,Math.PI*2);c.stroke();c.font='bold 30px sans-serif';c.textAlign='center';c.fillStyle='#fff';c.fillText('다음 별: '+(this.next+1),360,85);c.restore();}
     this.points.forEach((p,i)=>{c.save();c.shadowColor=i===this.next?'#fff3a4':'#7dc8ff';c.shadowBlur=i===this.next?35:19;AR.circle(c,p.x,p.y,30,i<this.next?'#fff4c6':i===this.next?'#fff0a1':'#9adaff');AR.circle(c,p.x,p.y,23,'rgba(41,51,117,.7)');AR.star(c,p.x,p.y,14,i<this.next?'#fff6c7':'#fff');c.restore();
       c.font='bold 25px sans-serif';c.textAlign='center';c.textBaseline='middle';c.fillStyle='#ffffff';c.fillText(String(i+1),p.x,p.y+1);});
     if(this.transition>0&&this.next===this.points.length){c.save();c.font='bold 52px sans-serif';c.textAlign='center';c.fillStyle='#fff3cb';c.shadowColor='#ffd3fa';c.shadowBlur=23;c.fillText('별자리 완성! ✨',360,87);c.restore();}

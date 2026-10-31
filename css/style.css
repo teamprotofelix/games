@@ -1227,3 +1227,63 @@ body {background:linear-gradient(135deg,#e9eaff,#fff0f8 45%,#e8f9ff);}
 .game-container.arcade-container {align-items:flex-start;justify-content:center;}
 
 .arcade-start-panel .arcade-best{font-weight:800;color:#ffe5a0;margin-top:-11px;margin-bottom:12px;font-size:.83rem}
+
+/* ========================================================
+   2026 Classic Remaster — tactile mobile arcade skin
+   The classic game mechanics and five adventure games remain.
+   ======================================================== */
+.game-card.classic-cover {min-height:185px;padding:0;border:0;background:#28264d;display:flex;align-items:stretch;justify-content:flex-end;text-align:left;box-shadow:0 9px 24px rgba(45,40,91,.17)}
+.game-card.classic-cover .game-card-cover {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .27s ease;}
+.game-card.classic-cover::after {content:'';position:absolute;inset:34% 0 0;background:linear-gradient(0deg,rgba(20,19,52,.91),rgba(32,24,60,.0));pointer-events:none;}
+.game-card.classic-cover .game-card-emoji {display:none}
+.game-card.classic-cover .game-card-body {position:relative;z-index:2;display:flex;align-self:stretch;align-items:flex-start;justify-content:end;text-align:left;padding:52px 12px 11px}
+.game-card.classic-cover .game-card-title {color:#fff;font-size:1.02rem;margin:0;text-shadow:0 2px 6px #201c4a}
+.game-card.classic-cover .game-card-desc {color:#efe8ff;font-size:.71rem;text-shadow:0 1px 4px #201c4a}
+.game-card.classic-cover .game-card-badge {z-index:3;animation:none;background:rgba(255,255,255,.94);color:#685595;right:9px;top:9px;font-size:.62rem;padding:4px 8px}
+.game-card.classic-cover:hover .game-card-cover {transform:scale(1.045)}
+.game-card.classic-cover:active .game-card-cover {transform:scale(1.01)}
+@media(max-width:370px){.game-card.classic-cover{min-height:166px}.game-card.classic-cover .game-card-body{padding:35px 10px 10px}.game-card.classic-cover .game-card-title{font-size:.93rem}.game-card.classic-cover .game-card-desc{font-size:.67rem}}
+
+.game-container.classic-remaster {position:relative;background-image:linear-gradient(180deg,rgba(246,240,255,.69),rgba(251,250,255,.84)),var(--classic-scene);background-position:center;background-size:cover;background-attachment:local;align-items:flex-start;padding:16px 12px 26px;}
+.game-container.classic-remaster > div {position:relative;margin:0 auto;max-width:100%;border-radius:23px;}
+.game-container.classic-remaster p {color:#58536e!important;text-shadow:0 1px #fff}
+.game-container.classic-remaster .btn-start {background:linear-gradient(125deg,#8264c9,#c582c8);box-shadow:0 5px 14px rgba(79,57,143,.23);font-family:inherit;font-weight:900;min-height:44px}
+.game-container.classic-remaster .game-intro {background:rgba(255,255,255,.84);border:1px solid #fff;box-shadow:0 12px 30px #52476c18;border-radius:23px}
+.game-container.classic-remaster .game-intro h3 {color:#514287}
+.game-container.classic-remaster .whack-board {padding:13px;gap:11px;background:linear-gradient(160deg,rgba(59,118,88,.88),rgba(43,94,78,.89));border:4px solid #d4b8ef;border-radius:23px;box-shadow:0 8px 25px #264e4542}
+.game-container.classic-remaster .whack-hole {background:radial-gradient(ellipse at 50% 55%,#35233d 0%,#4c3352 58%,#66854b 60%,#9ed17b 85%,#efffca 96%);border:3px solid #b4e994;box-shadow:inset 0 7px 9px #17172c87,0 2px 3px #273d43}
+.game-container.classic-remaster .whack-mole {width:105%;max-height:96%;display:grid;place-items:center;bottom:-5%;}
+.game-container.classic-remaster .whack-mole img {display:block;width:100%;height:auto;max-height:110px;object-fit:contain;filter:drop-shadow(0 1px 2px #241b38)}
+.game-container.classic-remaster .whack-mole.show {transform:translate(-50%,6%)}
+.game-container.classic-remaster .whack-hole.hit {box-shadow:inset 0 0 15px #ffe093,0 0 0 4px #ffe7a3}
+.game-container.classic-remaster .whack-hole.hit::after {content:'✦';color:#ffe88e;font-size:2rem;position:absolute;top:10%;left:15%;pointer-events:none;animation:matchPop .3s ease-out}
+.game-container.classic-remaster .memory-board {padding:9px;gap:8px;background:linear-gradient(150deg,#55449c,#8169b8);border:4px solid #b5a5f1;border-radius:20px;box-shadow:0 8px 26px #39316b45;}
+.game-container.classic-remaster .memory-card-face {border-radius:12px}
+.game-container.classic-remaster .memory-card-back {background:radial-gradient(circle at 30% 20%,#9f92e1,#4b448b 70%);border:2px solid #ece1ff}
+.game-container.classic-remaster .memory-card-back::after {content:'✦';font-size:2rem;color:#ffe9ab;text-shadow:0 0 14px #fff5b1}
+.game-container.classic-remaster .memory-card-front {background:#fff;border:2px solid #fff1e1;overflow:hidden}
+.game-container.classic-remaster .memory-card-front img {width:100%;height:100%;object-fit:cover;border-radius:10px}
+.game-container.classic-remaster .memory-info {color:#514689;font-weight:900;padding:8px 6px;background:#ffffffd9;border-radius:12px;margin-bottom:10px}
+.game-container.classic-remaster .snake-canvas-wrap {border:5px solid #83c4a7;border-radius:19px;overflow:hidden;box-shadow:0 10px 24px #253d6842;max-width:100%}
+.game-container.classic-remaster .snake-controls .snake-dpad:not(.snake-dpad-empty) {min-width:49px;min-height:49px;border-radius:13px;background:linear-gradient(125deg,#6ecdc1,#7c9dcd);border:1px solid #dcf8ff;box-shadow:0 4px 0 #458f9e}
+.game-container.classic-remaster .game2048-wrap {background:#ffffffbb;padding:13px;border:2px solid #fff;border-radius:20px;box-shadow:0 9px 25px #4a327d23;}
+.game-container.classic-remaster .board2048 {background:linear-gradient(140deg,#60529e,#aa8aca);padding:9px;border:3px solid #d6c0ed;border-radius:17px;gap:7px}
+.game-container.classic-remaster .tile2048 {border-radius:13px;background:rgba(255,255,255,.20);font-weight:900;color:#4a315b;box-shadow:inset 0 2px #ffffff8c,0 3px 3px #45376244;line-height:1;font-size:clamp(1rem,5vw,1.35rem);text-shadow:0 1px #ffffff44}
+.game-container.classic-remaster .tile2048[data-value="2"] {background:linear-gradient(145deg,#fff5db,#ffdcad)}
+.game-container.classic-remaster .tile2048[data-value="4"] {background:linear-gradient(145deg,#ffe4e5,#f9aabf)}
+.game-container.classic-remaster .tile2048[data-value="8"] {background:linear-gradient(145deg,#f9ddac,#eeac6e)}
+.game-container.classic-remaster .tile2048[data-value="16"] {background:linear-gradient(145deg,#d5c4fe,#a88be6)}
+.game-container.classic-remaster .tile2048[data-value="32"] {background:linear-gradient(145deg,#b4e2ff,#6cb7ee)}
+.game-container.classic-remaster .tile2048[data-value="64"] {background:linear-gradient(145deg,#b9f4cf,#60c9a4)}
+.game-container.classic-remaster .tile2048[data-value="128"],.game-container.classic-remaster .tile2048[data-value="256"],.game-container.classic-remaster .tile2048[data-value="512"],.game-container.classic-remaster .tile2048[data-value="1024"],.game-container.classic-remaster .tile2048[data-value="2048"] {background:linear-gradient(145deg,#ffe9a4,#f8bb67);color:#62455d}
+.game-container.classic-remaster .game2048-score-box {background:#7f66b3;color:white;border-radius:12px;}
+.game-container.classic-remaster #bpArea {background-image:linear-gradient(180deg,#e2d9ff44,#82b9ee20),url('../images/classic/bubble-pop-scene.webp')!important;background-size:cover!important;background-position:center!important;border:4px solid #c0b5ee!important;box-shadow:0 10px 25px #40347d38}
+.game-container.classic-remaster .bubble-sprite::after {content:'✦';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#ffffffb5;font-size:1.3rem;pointer-events:none;text-shadow:0 0 6px #f6dcff}
+.game-container.classic-remaster .classic-picture-board {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;background:#4c467b;border:7px solid #d4c6ff;box-shadow:0 10px 24px #403f6d50;border-radius:17px;padding:5px;aspect-ratio:1;width:100%;}
+.game-container.classic-remaster .picture-tile {display:flex;align-items:end;justify-content:end;aspect-ratio:1;min-width:0;padding:4px;border:1px solid #ffffffbb;border-radius:5px;background-image:url('../images/classic/puzzle-picture.webp');background-size:400% 400%;background-repeat:no-repeat;touch-action:manipulation;cursor:pointer;box-shadow:inset 0 1px #ffffff99,0 2px 4px #17143577;}
+.game-container.classic-remaster .picture-tile:active {transform:scale(.94)}
+.game-container.classic-remaster .picture-tile.picture-empty {background:none;border:2px dashed #ddd4f8;box-shadow:inset 0 2px 10px #2e2846;cursor:default;}
+.game-container.classic-remaster .picture-number {font-size:.75rem;color:white;background:#29254bb9;padding:0 5px;border-radius:7px;font-weight:900;text-shadow:0 1px 2px #222}
+.game-container.classic-remaster #spBoard + p {background:#ffffffc9;border-radius:10px;padding:9px}
+@media(max-width:370px){.game-container.classic-remaster {padding:9px 5px}.game-container.classic-remaster .picture-number{font-size:.66rem}.game-container.classic-remaster .whack-board {gap:7px;padding:8px}}
+@media(prefers-reduced-motion:reduce){.game-card.classic-cover .game-card-cover{transition:none}}
