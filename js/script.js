@@ -7,6 +7,12 @@
 // Game Registry
 // ============================================
 const GAMES = [
+    {id:'moon-run',title:'달빛 숲 점프',emoji:'🦊',desc:'달리며 점프! 별을 모아 숲을 건너요',badge:'NEW · 액션',color:'#758be8',module:'MoonRunner',isNew:true,thumb:'images/adventure/thumb-moon-run.webp'},
+    {id:'pearl-dive',title:'반짝 진주 잠수함',emoji:'🐠',desc:'진주를 모으고 해파리를 피해요',badge:'NEW · 수집',color:'#53bfde',module:'PearlDiver',isNew:true,thumb:'images/adventure/thumb-pearl-dive.webp'},
+    {id:'flower-beat',title:'꽃잎 비트 정원',emoji:'🌸',desc:'박자에 맞춰 꽃을 톡톡! 콤보 도전',badge:'NEW · 리듬',color:'#e99dc9',module:'FlowerBeat',isNew:true,thumb:'images/adventure/thumb-flower-beat.webp'},
+    {id:'star-path',title:'반짝 별자리 연결',emoji:'🌌',desc:'숫자 순서로 별을 이어 별자리 완성',badge:'NEW · 퍼즐',color:'#8b8bd8',module:'StarPath',isNew:true,thumb:'images/adventure/thumb-star-path.webp'},
+    {id:'candy-stack',title:'솜사탕 타워',emoji:'🍬',desc:'찰떡 타이밍으로 탑을 높이 쌓아요',badge:'NEW · 타이밍',color:'#ed9cb6',module:'CandyStack',isNew:true,thumb:'images/adventure/thumb-candy-stack.webp'},
+
     {
         id: 'whack-mole',
         title: '두더지 잡기',
@@ -166,20 +172,19 @@ const App = {
     },
 
     renderGameCards() {
-        const grid = document.getElementById('gamesGrid');
-        grid.innerHTML = GAMES.map((g, i) => `
-            <div class="game-card" data-game-id="${g.id}" style="animation-delay: ${i * 0.05}s">
-                <span class="game-card-badge">${g.badge}</span>
-                <span class="game-card-emoji">${g.emoji}</span>
-                <div class="game-card-title">${g.title}</div>
-                <div class="game-card-desc">${g.desc}</div>
-            </div>
-        `).join('');
+        const makeCard = (g, i) => `<button type="button" class="game-card ${g.isNew ? 'game-card-featured' : ''}" data-game-id="${g.id}" style="animation-delay:${Math.min(i,18)*0.045}s" aria-label="${g.title} 게임 시작">
+            ${g.thumb ? `<img class="game-card-cover" src="${g.thumb}" alt="" loading="lazy" width="720" height="405">` : ''}
+            <span class="game-card-badge">${g.badge}</span>
+            <span class="game-card-emoji">${g.emoji}</span>
+            <span class="game-card-body"><span class="game-card-title">${g.title}</span><span class="game-card-desc">${g.desc}</span></span>
+        </button>`;
+        document.getElementById('featuredGrid').innerHTML = GAMES.filter(g=>g.isNew).map(makeCard).join('');
+        document.getElementById('gamesGrid').innerHTML = GAMES.filter(g=>!g.isNew).map(makeCard).join('');
     },
 
     bindEvents() {
         // Game card clicks
-        document.getElementById('gamesGrid').addEventListener('click', (e) => {
+        document.getElementById('mainMenu').addEventListener('click', (e) => {
             const card = e.target.closest('.game-card');
             if (!card) return;
             const gameId = card.dataset.gameId;
@@ -210,6 +215,8 @@ const App = {
         document.getElementById('modalOverlay').addEventListener('click', (e) => {
             if (e.target === e.currentTarget) {
                 this.hideModal();
+                this.destroyGame();
+                this.showMenu();
             }
         });
 
@@ -218,6 +225,8 @@ const App = {
             if (e.key === 'Escape') {
                 if (document.getElementById('modalOverlay').classList.contains('active')) {
                     this.hideModal();
+                    this.destroyGame();
+                    this.showMenu();
                 } else if (document.getElementById('gameScreen').classList.contains('active')) {
                     this.destroyGame();
                     this.showMenu();
@@ -230,8 +239,11 @@ const App = {
         const game = GAMES.find(g => g.id === gameId);
         if (!game) return;
 
+        // Retry must stop the previous game's animation frame and timers.
+        this.destroyGame();
         this.currentGame = gameId;
         const container = document.getElementById('gameContainer');
+        container.classList.toggle('arcade-container', !!game.isNew);
         const titleDisplay = document.getElementById('gameTitleDisplay');
         const scoreDisplay = document.getElementById('gameScoreDisplay');
 
@@ -245,6 +257,11 @@ const App = {
 
         // Create game instance
         switch (game.module) {
+            case 'MoonRunner': this.gameModule = new MoonRunner(container, scoreDisplay); break;
+            case 'PearlDiver': this.gameModule = new PearlDiver(container, scoreDisplay); break;
+            case 'FlowerBeat': this.gameModule = new FlowerBeat(container, scoreDisplay); break;
+            case 'StarPath': this.gameModule = new StarPath(container, scoreDisplay); break;
+            case 'CandyStack': this.gameModule = new CandyStack(container, scoreDisplay); break;
             case 'WhackMole': this.gameModule = new WhackMole(container, scoreDisplay); break;
             case 'MemoryGame': this.gameModule = new MemoryGame(container, scoreDisplay); break;
             case 'CatchStar': this.gameModule = new CatchStar(container, scoreDisplay); break;
@@ -283,6 +300,7 @@ const App = {
         document.getElementById('gameScreen').classList.remove('active');
         document.getElementById('mainMenu').classList.remove('hidden');
         document.getElementById('gameContainer').innerHTML = '';
+        document.getElementById('gameContainer').classList.remove('arcade-container');
     },
 
     showGameOver(score, message, game) {

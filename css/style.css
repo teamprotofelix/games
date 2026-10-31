@@ -1165,3 +1165,65 @@ body {
 .mt-12 { margin-top: 12px; }
 .mt-16 { margin-top: 16px; }
 .hidden { display: none !important; }
+
+
+/* --- 2026 Mini Arcade: original 16 games remain intact --- */
+:root {--max-width:640px;--pink:#8c75d9;--pink-light:#f1eafa;--bg:#f4f2ff;--card-shadow:0 8px 24px rgba(73,58,137,.12);--card-shadow-hover:0 16px 30px rgba(73,58,137,.18)}
+body {background:linear-gradient(135deg,#e9eaff,#fff0f8 45%,#e8f9ff);}
+.header {background:linear-gradient(118deg,#6554b6,#9576ce 60%,#df92ba);}
+.header-logo {width:44px;height:44px;}
+.site-title {font-size:clamp(1.08rem,3.4vw,1.45rem);}
+.site-subtitle {font-size:clamp(.69rem,2.2vw,.82rem);}
+.main-content {gap:26px;padding:18px 17px calc(32px + var(--safe-bottom));}
+.hero-card-new {position:relative;overflow:hidden;min-height:223px;padding:24px;border:0;display:flex;align-items:end;background:#3d447a;box-shadow:0 14px 32px rgba(53,58,125,.22);}
+.hero-scene {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.08);}
+.hero-card-new::after {content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,16,51,.86) 0%,rgba(30,34,77,.42) 70%,rgba(30,34,77,.04));}
+.hero-message {position:relative;z-index:2;}
+.hero-card-new .hero-message h2 {color:white;font-weight:900;font-size:clamp(1.46rem,4.7vw,2rem);line-height:1.32;text-shadow:0 3px 14px #252050;}
+.hero-card-new .hero-message p {color:#f4ecff;font-size:.8rem;}
+.hero-eyebrow {font-size:.64rem;letter-spacing:1.4px;font-weight:900;color:#ffe7a4;display:block;margin-bottom:10px;}
+.hero-sticker {position:absolute;z-index:2;top:17px;right:16px;background:#fff6ce;color:#58448c;border-radius:50%;width:62px;height:62px;display:flex;flex-direction:column;justify-content:center;align-items:center;font-weight:900;font-size:1.3rem;box-shadow:0 5px 12px #17103b55;transform:rotate(9deg);line-height:1.1;}
+.hero-sticker small {font-size:.57rem;letter-spacing:1px;}
+.section-heading {display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:8px;}
+.section-count {background:#ebe5ff;border-radius:999px;padding:5px 10px;color:#695bb9;font-size:.67rem;font-weight:900;white-space:nowrap;}
+.games-grid {gap:12px;}
+.game-card {font:inherit;min-width:0;color:inherit;display:flex;flex-direction:column;justify-content:center;align-items:center;}
+.game-card:focus-visible,.arcade-control-btn:focus-visible,.arcade-play:focus-visible {outline:4px solid #3a95ff;outline-offset:2px;}
+.game-card-emoji {line-height:1.2;}
+.game-card-body {display:flex;flex-direction:column;gap:3px;}
+.game-card-featured {border:0;padding:0;justify-content:flex-end;align-items:stretch;text-align:left;min-height:190px;background:#242956;box-shadow:0 8px 23px rgba(58,53,108,.18);}
+.game-card-featured .game-card-cover {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .28s;}
+.game-card-featured::after {content:'';position:absolute;inset:38% 0 0;background:linear-gradient(transparent,rgba(20,19,56,.91));pointer-events:none;}
+.game-card-featured .game-card-emoji {display:none;}
+.game-card-featured .game-card-body {position:relative;z-index:1;padding:42px 13px 13px;color:white;}
+.game-card-featured .game-card-title {color:white;font-size:1.03rem;font-weight:900;margin:0;}
+.game-card-featured .game-card-desc {color:#e9e4ff;font-size:.72rem;}
+.game-card-featured .game-card-badge {z-index:2;top:10px;right:10px;background:rgba(255,255,255,.94);color:#584e9b;border-radius:8px;font-size:.65rem;animation:none;padding:5px 9px;}
+.game-card-featured:hover .game-card-cover{transform:scale(1.06)}
+.game-card-featured:active .game-card-cover{transform:scale(1.03)}
+@media (min-width:560px){.featured-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.game-card-featured:first-child{grid-column:span 2;min-height:204px}.game-card-featured{min-height:202px;}.main-content{padding-inline:22px}}
+@media (max-width:400px){.game-card-featured{min-height:166px}.game-card-featured .game-card-body{padding:36px 10px 11px}.game-card-featured .game-card-title{font-size:.92rem}.game-card-featured .game-card-desc{font-size:.65rem}.site-title{font-size:1.06rem}.hero-card-new{min-height:195px;padding:17px}.hero-sticker{width:51px;height:51px;}}
+@media (prefers-reduced-motion:reduce){.game-card,.floating-star,.game-card-badge{animation:none!important}.game-card-cover{transition:none!important}}
+
+/* Canvas mini games: fixed internal coordinates, fluid mobile viewing */
+.arcade-shell{width:min(100%,560px);margin:0 auto;display:flex;flex-direction:column;gap:10px;padding:8px 4px 22px;}
+.arcade-info{display:flex;align-items:center;justify-content:space-between;gap:10px;color:#554b89;font-weight:900;font-size:.9rem;padding:7px 10px;background:white;border-radius:12px;box-shadow:0 3px 11px #625d9d19;}
+.arcade-viewport{position:relative;width:100%;aspect-ratio:720/680;border-radius:20px;overflow:hidden;box-shadow:0 14px 28px rgba(25,23,87,.18);background:#252a63;touch-action:none;}
+.arcade-canvas{width:100%;height:100%;display:block;touch-action:none;}
+.arcade-start{position:absolute;inset:0;background:linear-gradient(160deg,rgba(16,20,56,.28),rgba(19,24,61,.75));display:grid;place-items:center;padding:16px;}
+.arcade-start[hidden]{display:none}
+.arcade-start-panel{width:min(100%,330px);padding:25px 15px 23px;border:1px solid #ffffff75;border-radius:25px;background:rgba(31,32,73,.71);backdrop-filter:blur(9px);color:white;text-align:center;box-shadow:0 15px 36px rgba(0,0,0,.14);}
+.arcade-start-icon{font-size:3.4rem;line-height:1.2;margin-bottom:4px;}
+.arcade-start-panel h2{font-size:1.48rem;line-height:1.4;margin-bottom:10px;color:white;}
+.arcade-start-panel p{font-size:.87rem;line-height:1.8;color:#f5eefd;margin-bottom:18px;}
+.arcade-play{border:0;border-radius:999px;background:linear-gradient(120deg,#ffe4a8,#fff2d7);color:#564583;font-weight:900;font-size:1rem;padding:12px 26px;box-shadow:0 5px 0 #d8a37b;cursor:pointer;min-height:49px;touch-action:manipulation;}
+.arcade-play:active{transform:translateY(3px);box-shadow:0 2px 0 #d8a37b;}
+.arcade-controls{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+.arcade-control-btn{flex:1 1 auto;min-height:54px;min-width:108px;padding:10px 15px;font:inherit;font-size:.94rem;font-weight:900;border:0;border-radius:15px;color:#fff;background:linear-gradient(120deg,#7164c8,#a27bd3);box-shadow:0 5px 0 #574b9e;cursor:pointer;touch-action:manipulation;}
+.arcade-control-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #574b9e;}
+.arcade-tip{text-align:center;font-size:.75rem;color:#7d7594;padding-inline:5px;}
+@media(max-width:360px){.arcade-shell{padding:2px}.arcade-start-panel{padding:16px 10px}.arcade-start-icon{font-size:2.1rem}.arcade-start-panel h2{font-size:1.2rem}.arcade-start-panel p{font-size:.75rem}.arcade-control-btn{min-width:78px;font-size:.78rem;padding:8px;}}
+
+.game-container.arcade-container {align-items:flex-start;justify-content:center;}
+
+.arcade-start-panel .arcade-best{font-weight:800;color:#ffe5a0;margin-top:-11px;margin-bottom:12px;font-size:.83rem}
